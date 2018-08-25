@@ -17,7 +17,7 @@ var cacheTime = null;
                   Basically it's the prefix (toto-nodems, toto-ms, toto-ci, etc.)
  * }
  */
-exports.getAPIList = function() {
+exports.do = function() {
 
   return new Promise(function(success, failure) {
 
