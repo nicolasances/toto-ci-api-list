@@ -4,6 +4,19 @@ var moment = require('moment');
 var cachedApiList;
 var cacheTime = null;
 
+/**
+ * Retrieves from Github the list of available Toto APIs
+ * Returns a [] of
+ * {
+ *    name :      name of the api (e.g. expenses, api-list)
+                  Basically it's the name of the repository without the prefix (toto-nodems-, toto-ms-, toto-ci-)
+      localhost : the name of the localhost on the docker engine.
+                  it's the name of the GIT repository
+      repo :      the full URL of the github repository
+      type :      the type of microservice.
+                  Basically it's the prefix (toto-nodems, toto-ms, toto-ci, etc.)
+ * }
+ */
 exports.getAPIList = function() {
 
   return new Promise(function(success, failure) {
@@ -65,11 +78,27 @@ exports.getAPIList = function() {
 
         var msName = repos[i].name;
         var apiName = null;
+        var type = null;
 
-        if (msName.indexOf('toto-ms-') >= 0) apiName = msName.substr('toto-ms-'.length);
-        else if (msName.indexOf('toto-nodems-') >= 0) apiName = msName.substr('toto-nodems-'.length);
+        if (msName.indexOf('toto-ms-') >= 0) {
+          apiName = msName.substr('toto-ms-'.length);
+          type = 'toto-ms';
+        }
+        else if (msName.indexOf('toto-nodems-') >= 0) {
+          apiName = msName.substr('toto-nodems-'.length);
+          type = 'toto-nodems';
+        }
+        else if (msName.indexOf('toto-ci-') >= 0) {
+          apiName = msName.substr('toto-ci-'.length);
+          type = 'toto-ci';
+        }
 
-        if (apiName != null) apis.push({name : apiName, localhost : msName, repo: 'https://github.com/nicolasances/' + msName + '.git'});
+        if (apiName != null) apis.push({
+          name : apiName,
+          localhost : msName,
+          repo: 'https://github.com/nicolasances/' + msName + '.git',
+          type: type
+        });
 
       }
 
