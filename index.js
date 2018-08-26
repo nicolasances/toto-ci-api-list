@@ -4,7 +4,7 @@ var bodyParser = require("body-parser");
 
 var getAPIList = require('./dlg/GetAPIList');
 
-var apiName = 'ci-api-list';
+var apiName = 'api-list';
 
 var app = express();
 
