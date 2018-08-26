@@ -92,6 +92,10 @@ exports.do = function() {
           apiName = msName.substr('toto-ci-'.length);
           type = 'toto-ci';
         }
+        else if (msName.indexOf('toto-web-') >= 0) {
+          apiName = msName.substr('toto-web-'.length);
+          type = 'toto-web';
+        }
 
         if (apiName != null) apis.push({
           name : apiName,
