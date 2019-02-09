@@ -88,6 +88,12 @@ exports.do = function() {
           apiName = msName.substr('toto-nodems-'.length);
           type = 'toto-nodems';
         }
+        // Reactive Microservices
+        // I prepend 'react-' to the name so it is different than the API microservices
+        else if (msName.indexOf('toto-nodereact-') >= 0) {
+          apiName = 'react-' + msName.substr('toto-nodereact-'.length);
+          type = 'toto-nodereact';
+        }
         else if (msName.indexOf('toto-ci-') >= 0) {
           apiName = msName.substr('toto-ci-'.length);
           type = 'toto-ci';
