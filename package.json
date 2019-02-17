@@ -9,11 +9,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.18.2",
     "child_process": "^1.0.2",
-    "express": "^4.16.2",
     "moment-timezone": "^0.5.14",
-    "promise": "^8.0.1",
-    "request": "^2.83.0"
+    "request": "^2.83.0",
+    "toto-api-controller": "^3.0.2"
   }
 }
