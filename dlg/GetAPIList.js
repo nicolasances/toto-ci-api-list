@@ -94,6 +94,11 @@ exports.do = function() {
           apiName = 'react-' + msName.substr('toto-nodereact-'.length);
           type = 'toto-nodereact';
         }
+        // Toto ML microservices
+        else if (msName.startsWith('totoml-')) {
+          apiName = msName;
+          type='toto-nodems';
+        }
         else if (msName.indexOf('toto-ci-') >= 0) {
           apiName = msName.substr('toto-ci-'.length);
           type = 'toto-ci';
