@@ -103,6 +103,10 @@ exports.do = function() {
           apiName = msName.substr('toto-ci-'.length);
           type = 'toto-ci';
         }
+        else if (msName.indexOf('toto-cron-') >= 0) {
+          apiName = msName.substr('toto-'.length);
+          type = 'toto-cron';
+        }
         else if (msName.indexOf('toto-py-') >= 0) {
           apiName = msName.substr('toto-py-'.length);
           type = 'toto-py';
